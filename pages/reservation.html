@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation — Ahlam Coiffure</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">✂ Ahlam Coiffure</div>
+    <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="reservation.html">Réservation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" onclick="ouvrirAdmin()" style="color:#e91e8c;">🔐 Admin</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2 class="section-title">Prendre Rendez-vous</h2>
+    <p class="section-subtitle">Remplissez le formulaire ci-dessous</p>
+
+    <div class="form-container">
+        <div id="rdvMsg"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
+            <div class="form-group">
+                <label>Nom *</label>
+                <input type="text" id="rdvNom" placeholder="Votre nom">
+            </div>
+            <div class="form-group">
+                <label>Prénom *</label>
+                <input type="text" id="rdvPrenom" placeholder="Votre prénom">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Email *</label>
+            <input type="email" id="rdvEmail" placeholder="votre@email.com">
+        </div>
+        <div class="form-group">
+            <label>Téléphone</label>
+            <input type="tel" id="rdvTel" placeholder="6XX XXX XXX">
+        </div>
+        <div class="form-group">
+            <label>Service souhaité *</label>
+            <select id="rdvService">
+                <option value="">-- Choisir un service --</option>
+            </select>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
+            <div class="form-group">
+                <label>Date *</label>
+                <input type="date" id="rdvDate">
+            </div>
+            <div class="form-group">
+                <label>Heure *</label>
+                <input type="time" id="rdvHeure" min="08:00" max="18:00">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Message (optionnel)</label>
+            <textarea id="rdvMessage" rows="3"
+                placeholder="Précisions sur votre coiffure souhaitée..."></textarea>
+        </div>
+        <button class="btn" style="width:100%;font-size:1rem;"
+            onclick="soumettreRdv()">
+            📅 Confirmer le rendez-vous
+        </button>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <span>Ahlam Coiffure</span> — Tous droits réservés | Yaoundé, Cameroun</p>
+</footer>
+
+<!-- POPUP ADMIN -->
+<div class="admin-overlay" id="adminOverlay">
+    <div class="admin-box">
+        <div class="logo">🔐 Espace Admin</div>
+        <div id="adminMsg"></div>
+        <div class="form-group" style="text-align:left;">
+            <label>Nom d'utilisateur</label>
+            <input type="text" id="adminUser" placeholder="falmata">
+        </div>
+        <div class="form-group" style="text-align:left;">
+            <label>Mot de passe</label>
+            <input type="password" id="adminPass" placeholder="••••••••">
+        </div>
+        <button class="btn" style="width:100%;" onclick="connecterAdmin()">Se connecter</button>
+        <br><br>
+        <a href="#" onclick="fermerAdmin()" style="color:#888;font-size:0.9rem;">✕ Fermer</a>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

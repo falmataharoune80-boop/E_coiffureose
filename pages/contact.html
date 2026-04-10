@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Ahlam Coiffure</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">✂ Ahlam Coiffure</div>
+    <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="reservation.html">Réservation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" onclick="ouvrirAdmin()" style="color:#e91e8c;">🔐 Admin</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2 class="section-title">Contactez-Nous</h2>
+    <p class="section-subtitle">Nous sommes disponibles pour vous</p>
+
+    <div class="contact-grid">
+
+        <!-- Infos contact -->
+        <div>
+            <h3 style="color:#1a1a2e;margin-bottom:25px;font-size:1.4rem;">Nos coordonnées</h3>
+            <div class="contact-item">
+                <div class="icon">📍</div>
+                <p>
+                    <strong>Adresse</strong>
+                    ngaoundere, Cameroun<br>
+                    Quartier beka-bocom, Avenue Kennedy
+                </p>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📞</div>
+                <p>
+                    <strong>Téléphone</strong>
+                    +237 692 77 37 99<br>
+                    +237 670 55 15 60
+                </p>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📧</div>
+                <p>
+                    <strong>Email</strong>
+                    falmataharoune80@gmail.com
+                </p>
+            </div>
+            <div class="contact-item">
+                <div class="icon">🕐</div>
+                <p>
+                    <strong>Horaires d'ouverture</strong>
+                    Lundi – Samedi : 8h00 – 18h00<br>
+                    Dimanche : 10h00 – 15h00
+                </p>
+            </div>
+        </div>
+
+        <!-- Formulaire contact -->
+        <div class="form-container" style="box-shadow:none;padding:0;">
+            <h3 style="color:#1a1a2e;margin-bottom:25px;font-size:1.4rem;">Envoyez un message</h3>
+            <div id="contactMsg"></div>
+            <div class="form-group">
+                <label>Nom complet</label>
+                <input type="text" id="contactNom" placeholder="Votre nom">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="contactEmail" placeholder="votre@email.com">
+            </div>
+            <div class="form-group">
+                <label>Sujet</label>
+                <input type="text" id="contactSujet" placeholder="Objet de votre message">
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea id="contactMessage" rows="5"
+                    placeholder="Votre message..."></textarea>
+            </div>
+            <button class="btn" style="width:100%;"
+                onclick="envoyerContact()">
+                📨 Envoyer le message
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <span>Ahlam Coiffure</span> — Tous droits réservés | Yaoundé, Cameroun</p>
+</footer>
+
+<!-- POPUP ADMIN -->
+<div class="admin-overlay" id="adminOverlay">
+    <div class="admin-box">
+        <div class="logo">🔐 Espace Admin</div>
+        <div id="adminMsg"></div>
+        <div class="form-group" style="text-align:left;">
+            <label>Nom d'utilisateur</label>
+            <input type="text" id="adminUser" placeholder="falmata">
+        </div>
+        <div class="form-group" style="text-align:left;">
+            <label>Mot de passe</label>
+            <input type="password" id="adminPass" placeholder="••••••••">
+        </div>
+        <button class="btn" style="width:100%;" onclick="connecterAdmin()">Se connecter</button>
+        <br><br>
+        <a href="#" onclick="fermerAdmin()" style="color:#888;font-size:0.9rem;">✕ Fermer</a>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+<script>
+function envoyerContact() {
+    const nom     = document.getElementById('contactNom').value.trim();
+    const email   = document.getElementById('contactEmail').value.trim();
+    const sujet   = document.getElementById('contactSujet').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+    const msgDiv  = document.getElementById('contactMsg');
+
+    if (!nom || !email || !message) {
+        msgDiv.innerHTML = '<div class="alert alert-error">❌ Veuillez remplir tous les champs obligatoires.</div>';
+        return;
+    }
+
+    msgDiv.innerHTML = '<div class="alert alert-success">✅ Votre message a été envoyé ! Nous vous répondrons bientôt.</div>';
+
+    document.getElementById('contactNom').value     = '';
+    document.getElementById('contactEmail').value   = '';
+    document.getElementById('contactSujet').value   = '';
+    document.getElementById('contactMessage').value = '';
+}
+</script>
+
+</body>
+</html>

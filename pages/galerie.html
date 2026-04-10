@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie — Ahlam Coiffure</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">✂ Ahlam Coiffure</div>
+    <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="reservation.html">Réservation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" onclick="ouvrirAdmin()" style="color:#e91e8c;">🔐 Admin</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2 class="section-title">Notre Galerie</h2>
+    <p class="section-subtitle">Nos plus belles réalisations</p>
+    <div class="galerie-grid">
+        <div class="galerie-item">
+            <img src="../images/coiffure1.jpeg" alt="Tresse africaine">
+            <div class="overlay">
+                <strong>Tresse africaine</strong><br>
+                <small>Tresses</small>
+            </div>
+        </div>
+        <div class="galerie-item">
+            <img src="../images/coiffure2.jpeg" alt="Coiffure fleurie">
+            <div class="overlay">
+                <strong>Coiffure fleurie</strong><br>
+                <small>Tresses</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <span>Ahlam Coiffure</span> — Tous droits réservés | Yaoundé, Cameroun</p>
+</footer>
+
+<!-- POPUP ADMIN -->
+<div class="admin-overlay" id="adminOverlay">
+    <div class="admin-box">
+        <div class="logo">🔐 Espace Admin</div>
+        <div id="adminMsg"></div>
+        <div class="form-group" style="text-align:left;">
+            <label>Nom d'utilisateur</label>
+            <input type="text" id="adminUser" placeholder="falmata">
+        </div>
+        <div class="form-group" style="text-align:left;">
+            <label>Mot de passe</label>
+            <input type="password" id="adminPass" placeholder="••••••••">
+        </div>
+        <button class="btn" style="width:100%;" onclick="connecterAdmin()">Se connecter</button>
+        <br><br>
+        <a href="#" onclick="fermerAdmin()" style="color:#888;font-size:0.9rem;">✕ Fermer</a>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>
